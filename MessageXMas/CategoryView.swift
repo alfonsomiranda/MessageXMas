@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct CategoryView: View {
-    @State var selectedClaim: CategoryItem?
+    @State var selectedItem: CategoryItem?
     
     var body: some View {
-        NavigationView {
-            List(items) { item in
-                CategoryRow(categoryItem: item, selectedCategory: self.$selectedClaim)
-            }
-        }
+        Text("Hola")
     }
 }
 

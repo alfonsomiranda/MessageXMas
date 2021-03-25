@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F907B6DA2603C5B600AA41ED /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907B6D92603C5B600AA41ED /* BaseProvider.swift */; };
+		F9511318260A5DB900F06E8D /* CategortyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9511317260A5DB900F06E8D /* CategortyListView.swift */; };
+		F9511322260A5DFC00F06E8D /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9511321260A5DFC00F06E8D /* CategoryListViewModel.swift */; };
+		F9511334260A615F00F06E8D /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9511333260A615F00F06E8D /* CategoryItem.swift */; };
 		F9A0A7A525E940A4000F7A5B /* MessageXMasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7A425E940A4000F7A5B /* MessageXMasApp.swift */; };
-		F9A0A7A725E940A4000F7A5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7A625E940A4000F7A5B /* ContentView.swift */; };
 		F9A0A7A925E940A6000F7A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A0A7A825E940A6000F7A5B /* Assets.xcassets */; };
 		F9A0A7AC25E940A6000F7A5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A0A7AB25E940A6000F7A5B /* Preview Assets.xcassets */; };
 		F9A0A7B725E940A6000F7A5B /* MessageXMasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7B625E940A6000F7A5B /* MessageXMasTests.swift */; };
 		F9A0A7C225E940A6000F7A5B /* MessageXMasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7C125E940A6000F7A5B /* MessageXMasUITests.swift */; };
 		F9A0A7D325E9417F000F7A5B /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7D225E9417F000F7A5B /* CategoryRow.swift */; };
 		F9A0A7D825E941DA000F7A5B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7D725E941DA000F7A5B /* CategoryView.swift */; };
-		F9A0A7DD25E942C6000F7A5B /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7DC25E942C6000F7A5B /* CategoryItem.swift */; };
-		F9A0A7E225E945D1000F7A5B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7E125E945D1000F7A5B /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F907B6D92603C5B600AA41ED /* BaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProvider.swift; sourceTree = "<group>"; };
+		F9511317260A5DB900F06E8D /* CategortyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategortyListView.swift; sourceTree = "<group>"; };
+		F9511321260A5DFC00F06E8D /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		F9511333260A615F00F06E8D /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		F9A0A7A125E940A4000F7A5B /* MessageXMas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageXMas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A0A7A425E940A4000F7A5B /* MessageXMasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageXMasApp.swift; sourceTree = "<group>"; };
-		F9A0A7A625E940A4000F7A5B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F9A0A7A825E940A6000F7A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9A0A7AB25E940A6000F7A5B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F9A0A7AD25E940A6000F7A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,8 +55,6 @@
 		F9A0A7C325E940A6000F7A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9A0A7D225E9417F000F7A5B /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		F9A0A7D725E941DA000F7A5B /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		F9A0A7DC25E942C6000F7A5B /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
-		F9A0A7E125E945D1000F7A5B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F951131C260A5DBF00F06E8D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F9511320260A5DC600F06E8D /* Category */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F9511320260A5DC600F06E8D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F951132C260A5EE300F06E8D /* Model */,
+				F9511317260A5DB900F06E8D /* CategortyListView.swift */,
+				F9511321260A5DFC00F06E8D /* CategoryListViewModel.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F951132C260A5EE300F06E8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9511333260A615F00F06E8D /* CategoryItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F9A0A79825E940A4000F7A5B = {
 			isa = PBXGroup;
 			children = (
@@ -104,14 +132,13 @@
 			isa = PBXGroup;
 			children = (
 				F9A0A7A425E940A4000F7A5B /* MessageXMasApp.swift */,
-				F9A0A7A625E940A4000F7A5B /* ContentView.swift */,
+				F951131C260A5DBF00F06E8D /* Modules */,
 				F9A0A7A825E940A6000F7A5B /* Assets.xcassets */,
 				F9A0A7AD25E940A6000F7A5B /* Info.plist */,
 				F9A0A7AA25E940A6000F7A5B /* Preview Content */,
 				F9A0A7D225E9417F000F7A5B /* CategoryRow.swift */,
 				F9A0A7D725E941DA000F7A5B /* CategoryView.swift */,
-				F9A0A7DC25E942C6000F7A5B /* CategoryItem.swift */,
-				F9A0A7E125E945D1000F7A5B /* API.swift */,
+				F907B6D92603C5B600AA41ED /* BaseProvider.swift */,
 			);
 			path = MessageXMas;
 			sourceTree = "<group>";
@@ -271,12 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9A0A7A725E940A4000F7A5B /* ContentView.swift in Sources */,
+				F907B6DA2603C5B600AA41ED /* BaseProvider.swift in Sources */,
 				F9A0A7A525E940A4000F7A5B /* MessageXMasApp.swift in Sources */,
 				F9A0A7D825E941DA000F7A5B /* CategoryView.swift in Sources */,
-				F9A0A7DD25E942C6000F7A5B /* CategoryItem.swift in Sources */,
-				F9A0A7E225E945D1000F7A5B /* API.swift in Sources */,
+				F9511334260A615F00F06E8D /* CategoryItem.swift in Sources */,
+				F9511322260A5DFC00F06E8D /* CategoryListViewModel.swift in Sources */,
 				F9A0A7D325E9417F000F7A5B /* CategoryRow.swift in Sources */,
+				F9511318260A5DB900F06E8D /* CategortyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
