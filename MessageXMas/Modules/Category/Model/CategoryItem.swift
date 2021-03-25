@@ -8,7 +8,7 @@
 import Foundation
 
 struct CategoryItem: Codable, Identifiable {
-    var id = UUID()
+    var id: Int
     var title: String
     var subtitle: String
 }
