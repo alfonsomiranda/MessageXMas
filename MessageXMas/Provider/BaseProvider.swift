@@ -23,29 +23,18 @@ enum APIError: Error, LocalizedError {
 }
 
 protocol BaseProviderProtocol {
-    func requestGeneric<T: Decodable>(_ entityClass : T.Type, endpoint: String) -> AnyPublisher<T, APIError>
+    
+    func requestGeneric<T>(_ url: URL,
+                           entityClass : T.Type) -> AnyPublisher<T, NetworkingError> where T : Decodable
 }
 
 class BaseProvider: BaseProviderProtocol {
-    func requestGeneric<T: Decodable>(_ entityClass : T.Type, endpoint: String) -> AnyPublisher<T, APIError> {
-        guard let url = URL(string: endpoint) else {
-            preconditionFailure()
-            
-        }
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: entityClass.self, decoder: JSONDecoder())
-            .mapError { error in
-                if let errorDes = error as? APIError {
-                    return errorDes
-                    
-                } else {
-                    return APIError.apiError(reason: error.localizedDescription)
-                    
-                }
-                
-            }
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+    
+    internal func requestGeneric<T>(_ url: URL,
+                                    entityClass : T.Type) -> AnyPublisher<T, NetworkingError> where T : Decodable {
+        
+        let urlRequest = URLRequest(url: url)
+        return URLSession.shared.dataTaskPublisher(for: urlRequest)
+            .jsonDecodingPublisher(type: T.self)
     }
 }

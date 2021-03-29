@@ -12,7 +12,7 @@ class CategoryListViewModel: ObservableObject {
     private let provider: CategoryProviderProtocol = CategoryProvider()
     
     func fetchCategoryList() {
-        self.provider.fetchCategoryList {[weak self] (categoryList) in
+        self.provider.fetchCategoryList { [weak self] (categoryList) in
             self?.categoryList = categoryList
         } failure: { (error) in
             debugPrint("Error: \(error)")
