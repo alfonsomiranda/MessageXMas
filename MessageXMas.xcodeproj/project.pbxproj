@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B49E771C2611C6FD00F48692 /* BaseProvider+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49E771B2611C6FD00F48692 /* BaseProvider+Helpers.swift */; };
 		F907B6DA2603C5B600AA41ED /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907B6D92603C5B600AA41ED /* BaseProvider.swift */; };
 		F9511318260A5DB900F06E8D /* CategortyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9511317260A5DB900F06E8D /* CategortyListView.swift */; };
 		F9511322260A5DFC00F06E8D /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9511321260A5DFC00F06E8D /* CategoryListViewModel.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B49E771B2611C6FD00F48692 /* BaseProvider+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseProvider+Helpers.swift"; sourceTree = "<group>"; };
 		F907B6D92603C5B600AA41ED /* BaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProvider.swift; sourceTree = "<group>"; };
 		F9511317260A5DB900F06E8D /* CategortyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategortyListView.swift; sourceTree = "<group>"; };
 		F9511321260A5DFC00F06E8D /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				F907B6D92603C5B600AA41ED /* BaseProvider.swift */,
+				B49E771B2611C6FD00F48692 /* BaseProvider+Helpers.swift */,
 				F98978F8260CFD4200BC5F1A /* CategoryProvider.swift */,
 			);
 			path = Provider;
@@ -315,6 +318,7 @@
 				F9A0A7D825E941DA000F7A5B /* CategoryView.swift in Sources */,
 				F9511334260A615F00F06E8D /* CategoryItem.swift in Sources */,
 				F9511322260A5DFC00F06E8D /* CategoryListViewModel.swift in Sources */,
+				B49E771C2611C6FD00F48692 /* BaseProvider+Helpers.swift in Sources */,
 				F9A0A7D325E9417F000F7A5B /* CategoryRow.swift in Sources */,
 				F9511318260A5DB900F06E8D /* CategortyListView.swift in Sources */,
 			);

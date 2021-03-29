@@ -9,23 +9,24 @@ import Foundation
 import Combine
 
 protocol CategoryProviderProtocol: BaseProviderProtocol {
-    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(APIError) -> ())
+    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(NetworkingError) -> ())
 }
 
 class CategoryProvider: BaseProvider, CategoryProviderProtocol {
-    var cancellable: Set<AnyCancellable> = []
     
-    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(APIError) -> ()) {
-        requestGeneric([CategoryItem].self, endpoint: "https://605ca20d6d85de00170dac06.mockapi.io/msgxmas/v1/categories")
-            .sink { (completion) in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    failure(error)
-                }
-            } receiveValue: { (categoryList) in
-                success(categoryList)
+    var cancellable = Set<AnyCancellable>()
+    
+    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(NetworkingError) -> ()) {
+        requestGeneric(Endpoint.categories().url, entityClass: [CategoryItem].self)
+            .sink { (resultCombine) in
+              switch resultCombine{
+              case let .failure(error):
+                  failure(error)
+              case .finished: break
+              }
+            } receiveValue: { (resultCategoryEntity) in
+              success(resultCategoryEntity)
             }.store(in: &cancellable)
+
         }
 }
