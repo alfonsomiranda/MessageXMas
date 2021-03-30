@@ -8,44 +8,41 @@
 import Foundation
 import Combine
 
-
-enum APIError: Error, LocalizedError {
-    case unknown, apiError(reason: String)
-
-    var errorDescription: String? {
-        switch self {
-        case .unknown:
-            return "Unknown error"
-        case .apiError(let reason):
-            return reason
-        }
-    }
-}
-
 protocol BaseProviderProtocol {
-    func requestGeneric<T: Decodable>(_ entityClass : T.Type, endpoint: String) -> AnyPublisher<T, APIError>
+    func requestGeneric<T: Decodable>(_ entityClass : T.Type, endpoint: String, timeout: TimeInterval, retry: Int) -> AnyPublisher<T, NetworkingError>
 }
 
 class BaseProvider: BaseProviderProtocol {
-    func requestGeneric<T: Decodable>(_ entityClass : T.Type, endpoint: String) -> AnyPublisher<T, APIError> {
+    func requestGeneric<T: Decodable>(_ entityClass : T.Type, endpoint: String, timeout: TimeInterval = 60, retry: Int = 5) -> AnyPublisher<T, NetworkingError> {
         guard let url = URL(string: endpoint) else {
             preconditionFailure()
             
         }
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: entityClass.self, decoder: JSONDecoder())
-            .mapError { error in
-                if let errorDes = error as? APIError {
-                    return errorDes
-                    
-                } else {
-                    return APIError.apiError(reason: error.localizedDescription)
-                    
-                }
-                
+        
+        return URLSession.shared
+            .dataTaskPublisher(for: url)
+            .receive(on: DispatchQueue.main)
+            .mapError { (error) -> NetworkingError in
+                NetworkingError(error: error)
             }
-            .receive(on: RunLoop.main)
+            .flatMap { data, response -> AnyPublisher<T, NetworkingError> in
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    return Fail(error: NetworkingError(errorCode: 500)).eraseToAnyPublisher()
+                }
+                if (200...299).contains(httpResponse.statusCode) {
+                    return Just(data)
+                        .decode(type: T.self, decoder: JSONDecoder())
+                        .mapError { error in
+                            NetworkingError(status: .accepted)
+                        }
+                        .eraseToAnyPublisher()
+                } else {
+                    let error = NetworkingError(errorCode: httpResponse.statusCode)
+                    return Fail(error: NetworkingError(error: error))
+                        .eraseToAnyPublisher()
+                }
+            }
+            .retry(retry)
             .eraseToAnyPublisher()
     }
 }

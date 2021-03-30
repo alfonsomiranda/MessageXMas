@@ -9,14 +9,14 @@ import Foundation
 import Combine
 
 protocol CategoryProviderProtocol: BaseProviderProtocol {
-    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(APIError) -> ())
+    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(Error) -> ())
 }
 
 class CategoryProvider: BaseProvider, CategoryProviderProtocol {
     var cancellable: Set<AnyCancellable> = []
     
-    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(APIError) -> ()) {
-        requestGeneric([CategoryItem].self, endpoint: "https://605ca20d6d85de00170dac06.mockapi.io/msgxmas/v1/categories")
+    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(Error) -> ()) {
+        requestGeneric([CategoryItem].self, endpoint: "http://demo8628160.mockable.io/categories", retry: 10)
             .sink { (completion) in
                 switch completion {
                 case .finished:
