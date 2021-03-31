@@ -20,6 +20,9 @@
 		F9A0A7C225E940A6000F7A5B /* MessageXMasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7C125E940A6000F7A5B /* MessageXMasUITests.swift */; };
 		F9A0A7D325E9417F000F7A5B /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7D225E9417F000F7A5B /* CategoryRow.swift */; };
 		F9A0A7D825E941DA000F7A5B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A7D725E941DA000F7A5B /* CategoryView.swift */; };
+		F9C5B1412614E0FA00D2125F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5B1402614E0FA00D2125F /* BaseViewModel.swift */; };
+		F9C5B1472614E41500D2125F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5B1462614E41500D2125F /* ContentView.swift */; };
+		F9C5B14C2614E90500D2125F /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5B14B2614E90500D2125F /* CategoryDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		F9A0A7C325E940A6000F7A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9A0A7D225E9417F000F7A5B /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		F9A0A7D725E941DA000F7A5B /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		F9C5B1402614E0FA00D2125F /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		F9C5B1462614E41500D2125F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F9C5B14B2614E90500D2125F /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,7 @@
 		F951131C260A5DBF00F06E8D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F9C5B1452614E40600D2125F /* Common */,
 				F9511320260A5DC600F06E8D /* Category */,
 			);
 			path = Modules;
@@ -98,8 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				F951132C260A5EE300F06E8D /* Model */,
-				F9511317260A5DB900F06E8D /* CategortyListView.swift */,
 				F9511321260A5DFC00F06E8D /* CategoryListViewModel.swift */,
+				F9511317260A5DB900F06E8D /* CategortyListView.swift */,
+				F9C5B14B2614E90500D2125F /* CategoryDetailView.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -116,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				F985A984260FBC600074BCAB /* NetworkingError.swift */,
-				F907B6D92603C5B600AA41ED /* BaseProvider.swift */,
 				F98978F8260CFD4200BC5F1A /* CategoryProvider.swift */,
 			);
 			path = Provider;
@@ -145,6 +152,7 @@
 		F9A0A7A325E940A4000F7A5B /* MessageXMas */ = {
 			isa = PBXGroup;
 			children = (
+				F9C5B13F2614E0E700D2125F /* Base */,
 				F9A0A7A425E940A4000F7A5B /* MessageXMasApp.swift */,
 				F951131C260A5DBF00F06E8D /* Modules */,
 				F98978F7260CFCEE00BC5F1A /* Provider */,
@@ -181,6 +189,23 @@
 				F9A0A7C325E940A6000F7A5B /* Info.plist */,
 			);
 			path = MessageXMasUITests;
+			sourceTree = "<group>";
+		};
+		F9C5B13F2614E0E700D2125F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F907B6D92603C5B600AA41ED /* BaseProvider.swift */,
+				F9C5B1402614E0FA00D2125F /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F9C5B1452614E40600D2125F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F9C5B1462614E41500D2125F /* ContentView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +338,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F907B6DA2603C5B600AA41ED /* BaseProvider.swift in Sources */,
+				F9C5B1412614E0FA00D2125F /* BaseViewModel.swift in Sources */,
+				F9C5B1472614E41500D2125F /* ContentView.swift in Sources */,
 				F9A0A7A525E940A4000F7A5B /* MessageXMasApp.swift in Sources */,
 				F98978F9260CFD4200BC5F1A /* CategoryProvider.swift in Sources */,
 				F9A0A7D825E941DA000F7A5B /* CategoryView.swift in Sources */,
@@ -321,6 +348,7 @@
 				F9511322260A5DFC00F06E8D /* CategoryListViewModel.swift in Sources */,
 				F9A0A7D325E9417F000F7A5B /* CategoryRow.swift in Sources */,
 				F9511318260A5DB900F06E8D /* CategortyListView.swift in Sources */,
+				F9C5B14C2614E90500D2125F /* CategoryDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

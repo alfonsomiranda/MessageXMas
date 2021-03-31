@@ -7,14 +7,18 @@
 
 import Foundation
 
-class CategoryListViewModel: ObservableObject {
+class CategoryListViewModel: BaseViewModel {
     @Published var categoryList: [CategoryItem] = []
     private let provider: CategoryProviderProtocol = CategoryProvider()
     
     func fetchCategoryList() {
+        self.state = .loading
+        
         self.provider.fetchCategoryList {[weak self] (categoryList) in
+            self?.state = (categoryList.isEmpty) ? .empty : .success
             self?.categoryList = categoryList
-        } failure: { (error) in
+        } failure: {[weak self] (error) in
+            self?.state = .error
             debugPrint("Error: \(error)")
         }
     }

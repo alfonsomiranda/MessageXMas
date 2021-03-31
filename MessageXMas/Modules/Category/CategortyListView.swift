@@ -12,11 +12,9 @@ struct CategortyListView: View {
         
     var body: some View {
         NavigationView {
-            List(self.viewModel.categoryList) { item in
-                Text(item.title)
-            }.onAppear(perform: {
-                self.viewModel.fetchCategoryList()
-            }).navigationTitle("Categorías")
+            ContentView<ListView>(state: self.viewModel.state, listView: ListView(categories: self.viewModel.categoryList))
+        }.onAppear() {
+            self.viewModel.fetchCategoryList()
         }
     }
 }
@@ -24,5 +22,16 @@ struct CategortyListView: View {
 struct CategortyListView_Previews: PreviewProvider {
     static var previews: some View {
         CategortyListView()
+    }
+}
+
+struct ListView: View {
+    var categories: [CategoryItem] = []
+    var body: some View {
+        List(self.categories) { item in
+            NavigationLink(destination: CategoryDetailView(category: item.title)) {
+                Text(item.title)
+            }
+        }.navigationTitle("Categorías")
     }
 }
