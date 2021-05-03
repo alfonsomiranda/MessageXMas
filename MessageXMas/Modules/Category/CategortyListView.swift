@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategortyListView: View {
-    @ObservedObject var viewModel = CategoryListViewModel()
+    @ObservedObject var viewModel: CategoryListViewModel
         
     var body: some View {
         NavigationView {
@@ -21,7 +21,7 @@ struct CategortyListView: View {
 
 struct CategortyListView_Previews: PreviewProvider {
     static var previews: some View {
-        CategortyListView()
+        CategortyListView(viewModel: CategoryListViewModel())
     }
 }
 

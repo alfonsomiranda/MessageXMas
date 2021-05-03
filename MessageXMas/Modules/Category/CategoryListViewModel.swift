@@ -9,14 +9,14 @@ import Foundation
 
 class CategoryListViewModel: BaseViewModel {
     @Published var categoryList: [CategoryItem] = []
-    private let provider: CategoryProviderProtocol = CategoryProvider()
+    private let interactor: CategoryInteractorProtocol = CategoryInteractor()
     
     func fetchCategoryList() {
         self.state = .loading
         
-        self.provider.fetchCategoryList {[weak self] (categoryList) in
+        self.interactor.fetchCategoryList {[weak self] (categoryList) in
             self?.state = (categoryList.isEmpty) ? .empty : .success
-            self?.categoryList = categoryList
+            self?.categoryList = categoryList.map { CategoryItem(bussinesModel: $0) }
         } failure: {[weak self] (error) in
             self?.state = .error
             debugPrint("Error: \(error)")

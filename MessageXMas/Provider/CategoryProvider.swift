@@ -9,15 +9,15 @@ import Foundation
 import Combine
 
 protocol CategoryProviderProtocol: BaseProviderProtocol {
-    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(Error) -> ())
+    func fetchCategoryList(success: @escaping([CategoryServerModel]) -> (), failure: @escaping(Error) -> ())
 }
 
 class CategoryProvider: BaseProvider, CategoryProviderProtocol {
     var cancellable: Set<AnyCancellable> = []
     
-    func fetchCategoryList(success: @escaping([CategoryItem]) -> (), failure: @escaping(Error) -> ()) {
+    func fetchCategoryList(success: @escaping([CategoryServerModel]) -> (), failure: @escaping(Error) -> ()) {
         let dto = ProviderDTO(endpoint: "http://demo8628160.mockable.io/categories", method: .GET, body: nil)
-        requestGeneric([CategoryItem].self, dto: dto)
+        requestGeneric([CategoryServerModel].self, dto: dto)
             .sink { (completion) in
                 switch completion {
                 case .finished:
